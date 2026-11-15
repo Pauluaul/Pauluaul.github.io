@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vorname Nachname | Lebenslauf</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main>
+    <div class="terminal-bar" aria-hidden="true">
+      <span>gast@lebenslauf: ~/cv</span>
+      <span class="window-controls">− □ ×</span>
+    </div>
+    <div class="terminal-content">
+      <!-- Ab hier stehen die sichtbaren Texte. Ersetze die Platzhalter. -->
+      <header>
+        <p class="prompt" aria-hidden="true">
+          <span><span class="prompt-prefix">gast@lebenslauf</span>:<span class="prompt-path">~/cv</span>$</span>
+          <span class="prompt-line"><span class="prompt-command">cat lebenslauf.txt</span></span>
+        </p>
+        <h1 id="profil" tabindex="-1">Vorname Nachname</h1>
+        <p class="role">Deine Berufsbezeichnung oder gewünschte Position</p>
+        <p class="intro">Schreib hier in zwei Sätzen, was du kannst und auf welche Aufgaben du dich spezialisieren möchtest.</p>
+        <nav class="commands" aria-label="Abschnitte im Lebenslauf">
+          <a href="#projekte"><span aria-hidden="true">$</span> Projekte</a>
+          <a href="#kontakt"><span aria-hidden="true">$</span> Kontakt</a>
+        </nav>
+        <form class="shell" id="shell" hidden>
+          <label for="shell-command">Befehl eingeben (<code>help</code> zeigt die Befehle)</label>
+          <div class="shell-line">
+            <span class="prompt-prefix" aria-hidden="true">$</span>
+            <input id="shell-command" type="text" autocomplete="off" autocapitalize="off" spellcheck="false" enterkeyhint="go">
+          </div>
+          <div class="shell-output" id="shell-output" role="status"></div>
+        </form>
+        <template id="shell-help">
+          <dl class="shell-help">
+            <div><dt>ls</dt><dd>Dateien anzeigen</dd></div>
+            <div><dt>pwd</dt><dd>Aktuellen Pfad anzeigen</dd></div>
+            <div><dt>whoami</dt><dd>Benutzer anzeigen</dd></div>
+            <div><dt>cat lebenslauf.txt</dt><dd>Zum Profil springen</dd></div>
+            <div><dt>ls projekte/</dt><dd>Projektübersicht im Lebenslauf</dd></div>
+            <div><dt>cd projekte</dt><dd>Projektdetails öffnen</dd></div>
+            <div><dt>cat kontakt.txt</dt><dd>Zum Kontakt springen</dd></div>
+            <div><dt>clear</dt><dd>Ausgabe leeren</dd></div>
+          </dl>
+        </template>
+      </header>
+
+      <section aria-labelledby="erfahrung">
+        <h2 id="erfahrung"><span class="section-marker" aria-hidden="true"># </span>Berufserfahrung</h2>
+        <div>
+          <!-- Kopiere einen vollständigen article-Block für weitere Stationen. -->
+          <article>
+            <h3>Deine aktuelle oder letzte Position</h3>
+            <p class="details">Unternehmen · MM/JJJJ – heute</p>
+            <p class="description">Beschreibe eine wichtige Aufgabe und, wenn möglich, das Ergebnis deiner Arbeit.</p>
+          </article>
+          <article>
+            <h3>Weitere Position oder Praktikum</h3>
+            <p class="details">Unternehmen · MM/JJJJ – MM/JJJJ</p>
+            <p class="description">Nenne ein Projekt oder eine Verantwortung, die zur gewünschten Position passt.</p>
+          </article>
+        </div>
+      </section>
+
+      <section aria-labelledby="ausbildung">
+        <h2 id="ausbildung"><span class="section-marker" aria-hidden="true"># </span>Ausbildung</h2>
+        <article>
+          <h3>Dein Abschluss oder Studiengang</h3>
+          <p class="details">Bildungseinrichtung · JJJJ – JJJJ</p>
+        </article>
+      </section>
+
+      <section aria-labelledby="kenntnisse">
+        <h2 id="kenntnisse"><span class="section-marker" aria-hidden="true"># </span>Kenntnisse</h2>
+        <ul class="skills">
+          <li>Fachkenntnis</li>
+          <li>Werkzeug oder Software</li>
+          <li>Sprache und Niveau</li>
+        </ul>
+      </section>
+
+      <section id="projekte" tabindex="-1" aria-labelledby="projekte-titel">
+        <h2 id="projekte-titel"><span class="section-marker" aria-hidden="true"># </span>Projekte</h2>
+        <div>
+          <article>
+            <h3>Projektname 1</h3>
+            <p class="description">Ein Satz zum Ziel des Projekts und deinem Beitrag.</p>
+          </article>
+          <article>
+            <h3>Projektname 2</h3>
+            <p class="description">Ein Satz dazu, was du entwickelt oder verbessert hast.</p>
+          </article>
+          <a class="project-link" id="project-details-link" href="projekte.html">Projektdetails ansehen</a>
+        </div>
+      </section>
+
+      <section id="kontakt" tabindex="-1" aria-labelledby="kontakt-titel">
+        <h2 id="kontakt-titel"><span class="section-marker" aria-hidden="true"># </span>Kontakt</h2>
+        <div class="contact-transcript">
+          <p class="prompt" aria-hidden="true">
+            <span><span class="prompt-prefix">gast@lebenslauf</span>:<span class="prompt-path">~/cv</span>$</span>
+            <span class="contact-command">cat kontakt.txt</span>
+          </p>
+          <address>
+            <p><span class="contact-label">Ort:</span> Deine Stadt</p>
+            <!-- Ersetze die Beispieladresse im href und im sichtbaren Text. -->
+            <p><span class="contact-label">E-Mail:</span> <a href="mailto:hallo@example.com">hallo@example.com</a></p>
+          </address>
+        </div>
+      </section>
+    </div>
+  </main>
+  <script>
+    const shell = document.querySelector("#shell");
+    const commandInput = document.querySelector("#shell-command");
+    const commandOutput = document.querySelector("#shell-output");
+    const helpTemplate = document.querySelector("#shell-help");
+    const commands = new Map([
+      ["help", () => helpTemplate.content.cloneNode(true)],
+      ["ls", () => "lebenslauf.txt  projekte/  kontakt.txt"],
+      ["pwd", () => "/home/gast/cv"],
+      ["whoami", () => "gast"],
+      ["cat lebenslauf.txt", () => openSection("profil")],
+      ["ls projekte/", () => openSection("projekte")],
+      ["ls projekte", () => openSection("projekte")],
+      ["cd projekte", openProjects],
+      ["cd projekte/", openProjects],
+      ["cat kontakt.txt", () => openSection("kontakt")],
+      ["clear", () => ""],
+    ]);
+
+    function openProjects() {
+      location.assign(document.getElementById("project-details-link").href);
+      return "";
+    }
+
+    function openSection(id) {
+      const target = document.getElementById(id);
+      if (location.hash !== "#" + id) {
+        location.hash = id;
+      }
+      target.focus({ preventScroll: true });
+      target.scrollIntoView({ block: "start" });
+      return "";
+    }
+
+    shell.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const command = commandInput.value.trim().replace(/\s+/g, " ");
+      if (!command) return;
+
+      commandInput.value = "";
+      const run = commands.get(command);
+      commandOutput.replaceChildren(run
+        ? run()
+        : "bash: " + command + ": Unbekannter Befehl. Tippe help.");
+    });
+    shell.hidden = false;
+  </script>
+</body>
+</html>
