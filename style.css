@@ -340,3 +340,44 @@ article + article { margin-top: 1.25rem; }
 .project-image img { display: block; max-width: 100%; height: auto; }
 
 .project-link { display: inline-block; margin-top: .85rem; }
+
+.training-preview { margin: 1rem 0; }
+
+.training-screen {
+  padding: clamp(.75rem, 3vw, 1.2rem);
+  border: 1px solid var(--line);
+  border-radius: .55rem;
+  background: var(--background);
+}
+
+.training-screen table { width: 100%; margin-top: .55rem; border-collapse: collapse; }
+.training-screen th, .training-screen td { padding: .4rem .15rem; text-align: left; }
+.training-screen th { color: var(--muted); font-size: .82rem; font-weight: 500; }
+.training-screen td { border-top: 1px solid var(--line); }
+.training-preview figcaption { margin-top: .4rem; color: var(--muted); font-size: .85rem; }
+
+.project-commit {
+  border: 1px solid var(--line);
+  border-radius: .35rem;
+  overflow: hidden;
+}
+
+.project-commit h3, .diff-file { padding: .45rem .75rem; }
+.project-commit h3 { background: var(--bar); }
+.diff-file { color: var(--accent); border-block: 1px solid var(--line); }
+.diff-lines { margin: 0; }
+
+.diff-lines > div {
+  position: relative;
+  padding: .55rem .7rem .55rem 1.9rem;
+  background: color-mix(in srgb, var(--accent) 8%, var(--paper));
+}
+
+.diff-lines > div + div { border-top: 1px solid var(--line); }
+.diff-lines > div::before { content: "+" / ""; position: absolute; left: .7rem; color: var(--accent); }
+.diff-lines dt { color: var(--accent); font-weight: 650; }
+.diff-lines dd { margin: 0; }
+
+@media print {
+  .training-screen, .project-commit h3, .diff-lines > div { background: white; }
+}

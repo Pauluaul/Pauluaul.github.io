@@ -24,20 +24,42 @@
 
       <div class="project-gallery">
         <section aria-labelledby="projekt-1">
-          <h2 id="projekt-1">Projektname 1</h2>
+          <h2 id="projekt-1">Trainingsplan-App</h2>
           <div>
-            <p>Beschreibe die Ausgangslage, deinen Beitrag und das Ergebnis.</p>
+            <p class="details">Fiktives Beispielprojekt</p>
+            <p class="description">Trainingspläne erstellen und im Studio auch ohne Internet abrufen.</p>
+
+            <figure class="training-preview">
+              <div class="training-screen">
+                <h3>Ganzkörper A</h3>
+                <table>
+                  <thead><tr><th scope="col">Übung</th><th scope="col">Sätze × Wdh.</th></tr></thead>
+                  <tbody>
+                    <tr><td>Kniebeuge</td><td>3 × 8</td></tr>
+                    <tr><td>Bankdrücken</td><td>3 × 10</td></tr>
+                    <tr><td>Rudern</td><td>3 × 12</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <figcaption>UI-Mockup der Trainingsansicht</figcaption>
+            </figure>
+
+            <div class="project-commit">
+              <h3><code>git show</code> · Erster Commit</h3>
+              <p class="diff-file"><code>+++ projekt-notizen.md</code></p>
+              <dl class="diff-lines">
+                <div><dt>Idee</dt><dd>Trainingspläne für den Einsatz im Studio griffbereit machen.</dd></div>
+                <div><dt>Mein Beitrag</dt><dd>Datenmodell, Trainingsansicht und lokale Speicherung selbst umgesetzt.</dd></div>
+                <div><dt>Entscheidung</dt><dd>Die App speichert Pläne auf dem Gerät, damit sie auch bei schlechtem Empfang verfügbar sind.</dd></div>
+              </dl>
+            </div>
+
             <h3 class="project-link">Tech-Stack</h3>
             <ul class="skills">
-              <li>Sprache</li>
-              <li>Framework</li>
-              <li>Werkzeug</li>
+              <li>TypeScript</li>
+              <li>React</li>
+              <li>IndexedDB</li>
             </ul>
-            <!-- Lege screenshot-1.png neben diese HTML-Datei und ersetze dann den Platzhalter durch
-                 <img src="screenshot-1.png" alt="Beschreibe, was im Screenshot zu sehen ist"> -->
-            <figure class="project-image">
-              <figcaption>Platz für einen Screenshot</figcaption>
-            </figure>
           </div>
         </section>
         <section aria-labelledby="projekt-2">
