@@ -113,11 +113,17 @@
       </section>
     </div>
   </main>
+  <dialog id="matrix-dialog" aria-label="Matrix-Zeichenregen">
+    <canvas aria-hidden="true"></canvas>
+    <button type="button" autofocus>Schließen · Esc</button>
+  </dialog>
+  <script src="matrix.js"></script>
   <script>
     const shell = document.querySelector("#shell");
     const commandInput = document.querySelector("#shell-command");
     const commandOutput = document.querySelector("#shell-output");
     const helpTemplate = document.querySelector("#shell-help");
+    let prankTimer;
     const commands = new Map([
       ["help", () => helpTemplate.content.cloneNode(true)],
       ["ls", () => "lebenslauf.txt  projekte/  kontakt.txt"],
@@ -130,7 +136,21 @@
       ["cd projekte/", openProjects],
       ["cat kontakt.txt", () => openSection("kontakt")],
       ["clear", () => ""],
+      ["sudo clear", () => "Ausgabe geleert. Dafür hätte es kein sudo gebraucht. :)"],
+      ["sudo rm -rf", pretendDelete],
+      ["sudo rm -rf /", pretendDelete],
+      ["sudo rm -rf /*", pretendDelete],
+      ["sudo rm -rf .", pretendDelete],
+      ["sudo rm -rf --no-preserve-root /", pretendDelete],
+      ["matrix", () => window.openMatrix()],
     ]);
+
+    function pretendDelete() {
+      prankTimer = setTimeout(() => {
+        commandOutput.textContent = "rm: lebenslauf.txt: Zu viel Arbeit reingesteckt.\nAlles noch da. Netter Versuch. :)";
+      }, 1400);
+      return "Entferne lebenslauf.txt …\nEntferne projekte/ …\nMoment mal …";
+    }
 
     function openProjects() {
       location.assign(document.getElementById("project-details-link").href);
@@ -152,6 +172,7 @@
       const command = commandInput.value.trim().replace(/\s+/g, " ");
       if (!command) return;
 
+      clearTimeout(prankTimer);
       commandInput.value = "";
       const run = commands.get(command);
       commandOutput.replaceChildren(run
